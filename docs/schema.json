@@ -17282,8 +17282,258 @@
             "type"
           ],
           "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "xhttp"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "host": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "headers": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "domain_strategy": {
+              "$ref": "#/$defs/DomainStrategy"
+            },
+            "x_padding_bytes": {
+              "$ref": "#/$defs/XrayRange"
+            },
+            "no_grpc_header": {
+              "type": "boolean"
+            },
+            "no_sse_header": {
+              "type": "boolean"
+            },
+            "sc_max_each_post_bytes": {
+              "$ref": "#/$defs/XrayRange"
+            },
+            "sc_min_posts_interval_ms": {
+              "$ref": "#/$defs/XrayRange"
+            },
+            "sc_max_buffered_posts": {
+              "type": "integer"
+            },
+            "sc_stream_up_server_secs": {
+              "$ref": "#/$defs/XrayRange"
+            },
+            "server_max_header_bytes": {
+              "type": "integer"
+            },
+            "trusted_x_forwarded_for": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "xmux": {
+              "$ref": "#/$defs/V2RayXHTTPXmuxOptions"
+            },
+            "x_padding_obfs_mode": {
+              "type": "boolean"
+            },
+            "x_padding_key": {
+              "type": "string"
+            },
+            "x_padding_header": {
+              "type": "string"
+            },
+            "x_padding_placement": {
+              "type": "string"
+            },
+            "x_padding_method": {
+              "type": "string"
+            },
+            "uplink_http_method": {
+              "type": "string"
+            },
+            "session_placement": {
+              "type": "string"
+            },
+            "session_key": {
+              "type": "string"
+            },
+            "seq_placement": {
+              "type": "string"
+            },
+            "seq_key": {
+              "type": "string"
+            },
+            "uplink_data_placement": {
+              "type": "string"
+            },
+            "uplink_data_key": {
+              "type": "string"
+            },
+            "uplink_chunk_size": {
+              "$ref": "#/$defs/XrayRange"
+            },
+            "download": {
+              "$ref": "#/$defs/V2RayXHTTPDownloadOptions"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
         }
       ]
+    },
+    "V2RayXHTTPDownloadOptions": {
+      "type": "object",
+      "properties": {
+        "host": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "domain_strategy": {
+          "$ref": "#/$defs/DomainStrategy"
+        },
+        "x_padding_bytes": {
+          "$ref": "#/$defs/XrayRange"
+        },
+        "no_grpc_header": {
+          "type": "boolean"
+        },
+        "no_sse_header": {
+          "type": "boolean"
+        },
+        "sc_max_each_post_bytes": {
+          "$ref": "#/$defs/XrayRange"
+        },
+        "sc_min_posts_interval_ms": {
+          "$ref": "#/$defs/XrayRange"
+        },
+        "sc_max_buffered_posts": {
+          "type": "integer"
+        },
+        "sc_stream_up_server_secs": {
+          "$ref": "#/$defs/XrayRange"
+        },
+        "server_max_header_bytes": {
+          "type": "integer"
+        },
+        "trusted_x_forwarded_for": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "xmux": {
+          "$ref": "#/$defs/V2RayXHTTPXmuxOptions"
+        },
+        "x_padding_obfs_mode": {
+          "type": "boolean"
+        },
+        "x_padding_key": {
+          "type": "string"
+        },
+        "x_padding_header": {
+          "type": "string"
+        },
+        "x_padding_placement": {
+          "type": "string"
+        },
+        "x_padding_method": {
+          "type": "string"
+        },
+        "uplink_http_method": {
+          "type": "string"
+        },
+        "session_placement": {
+          "type": "string"
+        },
+        "session_key": {
+          "type": "string"
+        },
+        "seq_placement": {
+          "type": "string"
+        },
+        "seq_key": {
+          "type": "string"
+        },
+        "uplink_data_placement": {
+          "type": "string"
+        },
+        "uplink_data_key": {
+          "type": "string"
+        },
+        "uplink_chunk_size": {
+          "$ref": "#/$defs/XrayRange"
+        },
+        "server": {
+          "type": "string"
+        },
+        "server_port": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "tls": {
+          "$ref": "#/$defs/OutboundTLSOptions"
+        },
+        "detour": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "V2RayXHTTPXmuxOptions": {
+      "type": "object",
+      "properties": {
+        "max_concurrency": {
+          "$ref": "#/$defs/XrayRange"
+        },
+        "max_connections": {
+          "$ref": "#/$defs/XrayRange"
+        },
+        "c_max_reuse_times": {
+          "$ref": "#/$defs/XrayRange"
+        },
+        "h_max_request_times": {
+          "$ref": "#/$defs/XrayRange"
+        },
+        "h_max_reusable_secs": {
+          "$ref": "#/$defs/XrayRange"
+        },
+        "h_keep_alive_period": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
     },
     "VLESSUser": {
       "type": "object",
@@ -17367,6 +17617,28 @@
         }
       },
       "additionalProperties": false
+    },
+    "XrayRange": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "integer"
+            },
+            "to": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
     }
   }
 }
