@@ -2,7 +2,7 @@
 
 
 > **Note**: This is a custom fork of sing-box tailored for FlareVPN (adds XHTTP support).
-Current fork version: 1.13.13
+Current fork version: 1.13.14
 
 The universal proxy platform.
 
