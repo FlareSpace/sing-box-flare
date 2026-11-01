@@ -21,3 +21,5 @@
 CLAUDE.md
 AGENTS.md
 /.claude/
+sing-box-*
+/build_output/
